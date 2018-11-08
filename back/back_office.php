@@ -1,4 +1,4 @@
-<?php include('fonction.php');
+<?php include('../inc/fonction.php');
 
 //compte les films
 $sql = "SELECT COUNT(films) FROM movies_full";
@@ -17,7 +17,7 @@ $query->execute();
 $best_films = $query->fetchAll();
 
 
-include('header.php'); ?>
+include('inc/header.php'); ?>
 <!-- Affiche les stats à l'Admin -->
 <p class="stats"><h2>Le nombre de films dans votre site est de :<?php echo $count_films ?></h2><br/>
 <h2>Le nombre d'utilisateurs dans votre site est de :<?php echo $count_users ?></h2><br/>
@@ -27,4 +27,4 @@ include('header.php'); ?>
 <p><a href="#">Ajout d'un film</a></p>
 <p><a href="#">Consultation d'utilisateurs'</a></p>
 
-<?php include('inc/footer.php'); ?>
+<?php include('../inc/footer.php'); ?>
