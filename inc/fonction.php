@@ -1,28 +1,85 @@
 <?php
 function br(){
-  echo '<br>';
-}
+  echo '<br/>';}
 
-function debug(array $table){
+function division(int $a,int $b){
+$result = $a/$b;
+return($result);}
+
+function tab($array){
   echo '<pre>';
-  print_r($table);
-  echo '</pre>';
+  print_r ($array);
+  echo '</pre>';}
+
+function inc($i){
+    $i++;
+    return($i);}
+
+$errors = array();
+function vTxt($errors,$data,$min,$max,$key,$empty = true){
+if (!empty($data)){
+  if(strlen($data) < $min){
+    $errors[$key]= 'min  '.$min.' caracteres ';
+  }elseif (strlen($data) > $max ) {
+    $errors=[$key]='max '.$max.' caractere';
+  }
+}else {
+  if($empty){
+  $errors[$key]='Veuillez renseigner ce champ';}
+}
+  return $errors;
 }
 
-// function affiche($movies){
-//
-// foreach ($movies as $movie) {
-//     $id=$movie['id'];
-//     $titre=$movie['title'];
-//     $href='http://www.weblitzer.fr/formation/posters/'.$id.'.jpg';
-//     echo '<div class="affichage>"';
-//     echo '<img src="'.$href.'" alt="'.$titre.'"  width="220px" height="320px">';
-//     echo '<div class="titre">'.$titre.'</div><br>';
-//     echo '</div>';
-//   }
-// }
-function affiches($movie){
+function vMail($error,$value,$min,$max,$key) {
+  if (!empty($value)) {
+    if (filter_var($email, FILTER_VALIDATE_EMAIL)){
+      $value = trim(strip_tags($value));
+      if (is_string($value) && strlen($value) <= $min) {
+        $error[$key] = 'error : moins de '.$min.' caractères';
+      }
+      elseif (is_string($value) && strlen($value) >= $max ){
+        $error[$key] = 'error : plus de '.$max.' caractères';
+      }
+      else {
+        $error[$key] = 'error : vide';
+      }
+    return $error;
+    }
+  }
+}
 
-        echo '<img src="http://www.weblitzer.fr/formation/posters/'. $movie['id'].'.jpg" alt="'.$movie['title'].'">';
+function vMdp($error,$data,$min,$max,$key){
+  if (!empty($data)) {
+    if (is_string($data) && strlen($data) <= $min) {
+      $error[$key] = 'error : moins de '.$min.' caractères';
+    }
+    elseif (is_string($data) && strlen($data) >= $max ){
+      $error[$key] = 'error : plus de '.$max.' caractères';
+    }
+  }
+  else {
+    $error[$key] = 'error : vide';
+  }
+  return $error;
+}
+
+function generateRandomString($length){
+    $characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    $charsLength = strlen($characters) -1;
+    $string = "";
+    for($i=0; $i<$length; $i++){
+        $randNum = mt_rand(0, $charsLength);
+        $string .= $characters[$randNum];
+    }
+    return $string;
+}
+
+function isLogged(){
+  if(!empty($_SESSION['user']['id']) && !empty($_SESSION['user']['pseudo']) && !empty($_SESSION['user']['mail']) && !empty($_SESSION['user']['role']) && !empty($_SESSION['user']['ip'])) {
+    if($_SESSION['user']['ip'] = $_SERVER['REMOTE_ADDR']){
+    return true;
+  }
+}
+return false;
 }
 ?>
