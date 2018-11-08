@@ -12,6 +12,20 @@ $query -> execute();
 $movie = $query -> fetch();
 
  // Afficher les détails du film en question
-echo $movie;
+?>
+<ul>
+  <li><?php echo $movie['title']; ?></li>
+  <li><?php echo $movie['year']; ?></li>
+  <li><?php echo $movie['genres']; ?></li>
+  <li><?php echo $movie['plot']; ?></li>
+  <li><?php echo $movie['directors']; ?></li>
+  <li><?php echo $movie['cast']; ?></li>
+  <li><?php echo $movie['writers']; ?></li>
+  <li><?php echo $movie['runtime']; ?></li>
+  <li><?php echo $movie['mpaa']; ?></li>
+  <li><?php echo $movie['rating']; ?></li>
+  <li><?php echo $movie['popularity']; ?></li>
+</ul>
 
-include ('inc/footer.php');
+
+<?php include ('inc/footer.php'); ?>
