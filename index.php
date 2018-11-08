@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?php include('inc/header.php');
 
   $sql = "SELECT * FROM movies_full ORDER BY RAND() LIMIT 20";
@@ -6,19 +5,21 @@
   $query->execute();
   $movies = $query->fetchAll();?>
 
-  <div class="wrap">
+<div class="wrap">
 
-<?php foreach ($movies as $movie) { ?>
+<?php foreach ($movies as $movie) {
 
-  <div class="film">
-    <br/>
-    <h2><?php echo $movie['title']; ?></h2>
-      <a href="detail.php?slug=<?php echo $movie['slug']; ?>">
-        <img src="posters/<?php echo $movie['id'].".jpg" ?>" alt="<?php echo $movie['title'] ?> ">
-      </a>
-  </div>
-<?php } ?>
+  echo '<div class="film">'; 
+  echo '<br/>';
+    echo '<h2>'.$movie["title"].'</h2>';
+      echo '<a href="detail.php?slug='.$movie["slug"].'">';
+        echo '<img src="posters/'.$movie["id"].".jpg".'" alt="'.$movie["title"].'">';
+      echo '</a>';
+  echo '</div>';
+} ?>
 
-  </div>
+</div>
+
+<a class="more" href="index.php">Plus de film</a>
 
 <?php include('inc/footer.php'); ?>
