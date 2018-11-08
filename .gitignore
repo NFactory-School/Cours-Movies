@@ -1,3 +1,6 @@
 posters/
 pdo.php
 *.sql
+movies_full.sql.zip
+cdc.php
+.DS_Store
