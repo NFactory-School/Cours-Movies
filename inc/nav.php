@@ -1,5 +1,4 @@
 <nav>
-<<<<<<< HEAD
   <?php
                   if (!empty($_SESSION['user']))
                   {
@@ -20,11 +19,4 @@
                   <?php
                   }
                   ?>
-=======
-  <ul>
-    <li> <a href="incription.php">Inscription</a> </li>
-    <li> <a href="connection.php">Connexion</a> </li>
-  </ul>
-  <div class="clear"></div>
->>>>>>> ca4ceea7bb6478c5998d048559e0e314f337183b
 </nav>
