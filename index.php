@@ -1,13 +1,13 @@
 <?php include('inc/header.php');
 
-  $sql = "SELECT * FROM movies_full ORDER BY RAND() LIMIT 100";
+  $sql = "SELECT * FROM movies_full ORDER BY RAND() LIMIT 20";
   $query = $pdo->prepare($sql);
   $query->execute();
-  $movies = $query->fetchAll();
+  $movies = $query->fetchAll();?>
 
-foreach ($movies as $movie) { ?>
+  <div class="wrap">
 
-<div class="wrap">
+<?php foreach ($movies as $movie) { ?>
 
   <div class="film">
     <br/>
@@ -18,7 +18,6 @@ foreach ($movies as $movie) { ?>
   </div>
 <?php } ?>
 
-</div>
-
+  </div>
 
 <?php include('inc/footer.php'); ?>
