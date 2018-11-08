@@ -1,32 +1,48 @@
 <?php include('inc/header.php');
-
-  $sql = "SELECT * FROM movies_full ORDER BY RAND() LIMIT 20";
-  $query = $pdo->prepare($sql);
-  $query->execute();
-  $movies = $query->fetchAll();?>
+?>
 
 <div class="wrap">
 
-<form>
-  <input type="checkbox" name="all" selected value="">Action<br>
-  <input type="checkbox" name="vehicle3" value="Boat"> Biographie<br>
-  <input type="checkbox" name="vehicle2" value="Car"> Crime<br>
-  <input type="checkbox" name="vehicle3" value="Boat"> Drama<br>
-</form>
+<?php
 
-<?php 
-  $sql = "SELECT DISTINCT genres FROM movies_full ORDER BY genres DESC";
+  $sql = "SELECT genres FROM movies_full";
   $query = $pdo->prepare($sql);
   $query->execute();
-  $genre = $query->fetchAll(); 
+  $genres = $query->fetchall(); 
+
+  $tableau = array();
+
+  foreach ($genres as $genre) {
+
+    $g = $genre['genres'];
+    $explodes = explode(',',$g);
+
+    foreach ($explodes as $explode) {
+
+      $ex = trim($explode);
+
+      if(!in_array($ex,$tableau)) {
+
+        if(!empty($ex)) {
+          $tableau[] = $ex;
+        }
+      }
+    }
+  }
+
+  /*
+
+  $sql = "SELECT * FROM movies_full ORDER BY RAND() LIMIT 8";
+  $query = $pdo->prepare($sql);
+  $query->execute();
+  $movies = $query->fetchAll();
 
   foreach ($movies as $movie) {
   echo $movie["genres"];
   echo '<br/>';
   }
-?>
 
-<?php foreach ($movies as $movie) {
+  foreach ($movies as $movie) {
 
   echo '<div class="film">'; 
   echo '<br/>';
@@ -41,5 +57,5 @@ echo '</div>';
 
 echo '<br/>';
 echo '<a class="more" href="index.php">Plus de film</a>';
-
+*/
 include('inc/footer.php');
