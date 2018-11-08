@@ -22,6 +22,10 @@ foreach ($movies as $movie) { ?>
   </div>
 <?php } ?>
 </div>
+
+<a class="more" href="index.php">Plus de film</a>
+<br/>
+
 <div class="clear"></div>
 
 
