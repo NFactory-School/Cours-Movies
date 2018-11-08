@@ -16,7 +16,7 @@
 	<header id="header">
 		<header class="header">
 			<div class="header-limiter">
-				<h2><a href="index.php">Streaming Gratuit<span class="noporn"> No Porn</span></a></h2>
+				<h1><a href="index.php">Streaming Gratuit<span class="noporn"> No Porn</span></a></h1>
 				<?php include 'nav.php' ?>
 			</div>
 		</header>
