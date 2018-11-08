@@ -545,6 +545,7 @@ body {
 .detail-texte{
 	float: left;
 	margin-top: 2.5%;
+	margin-left: 10px;
 }
 
 /* very nice Checkbox */
