@@ -24,7 +24,7 @@ include ('inc/fonction.php');
       if(!empty($ex)) {
 
         $tableau[] = $ex;
-        echo '<input class="check" type="checkbox" name="'.$ex.'" value="'.$ex.'">'.$ex.'<br>';
+        echo '<input id="cbx" type="checkbox" name="'.$ex.'" value="'.$ex.'">'.$ex.'<br>';
       }
     }
   }

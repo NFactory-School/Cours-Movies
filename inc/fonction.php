@@ -1,6 +1,7 @@
 <?php
 function br(){
-  echo '<br/>';}
+  echo '<br/>';
+}
 
 function division(int $a,int $b){
 $result = $a/$b;

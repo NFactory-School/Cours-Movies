@@ -16,16 +16,22 @@ include ('inc/fonction.php');
   $query -> bindValue(':mail', $mail, PDO::PARAM_STR);
   $query -> execute();
 $user = $query -> fetch();
+
 if(!empty($user)){
+
   if(!password_verify($mdp, $user['mdp'])){
+
     $errors['mdp'] = "mdp invalide";
   }
-}else{
+}
+else{
+
   $errors['mail'] = 'Vous n\'êtes pas inscrit';
 }
 
 
   if(count($errors) == 0){
+
     $_SESSION['user'] = array(
       'id' => $user['id'],
       'pseudo' => $user['pseudo'],
@@ -40,17 +46,17 @@ if(!empty($user)){
 
 
 ?>
+
 <div class="wrap">
   <form class="" action="" method="post">
     <fieldset>
       <legend>Connection</legend>
-      <label for="pseudo">Pseudo ou adresse mail</label>
+        <label for="pseudo">Pseudo ou adresse mail</label>
       <input type="text" name="mail" value="">
       <span class="error"><?php if(!empty($errors['mail'])){echo $errors['mail'];};?></span>
-      <label for="mdp">Mot de passe</label>
+        <label for="mdp">Mot de passe</label>
       <input type="password" name="mdp" value="">
       <span class="error"><?php if(!empty($errors['mdp'])){echo $errors['mdp'];};?></span><br>
-      <input type="checkbox" name="cookie" id="cookie"/> <label for="cookie">Me connecter automatiquement à mon prochain passage.</label>
       <input class="myButton" type="submit" name="submit" value="Connection">
     </fieldset>
   </form>
