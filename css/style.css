@@ -481,127 +481,6 @@ body {
 
 
 
-
-.login-wrap{
-	width:100%;
-	margin:auto;
-	max-width:525px;
-	min-height:670px;
-	position:relative;
-}
-
-.login-html{
-	width:100%;
-	height:100%;
-	position:absolute;
-	padding:90px 70px 50px 70px;
-	background:darkgrey;
-}
-
-.login-html .sign-in-htm,
-.login-html .sign-up-htm{
-	top:0;
-	left:0;
-	right:0;
-	bottom:0;
-	position:absolute;
-	transform:rotateY(180deg);
-	backface-visibility:hidden;
-	transition:all .4s linear;
-}
-
-.login-html .sign-in,
-.login-html .sign-up,
-.login-form .group .check{
-	display:none;
-}
-
-.login-form .send{
-	text-transform:uppercase;
-}
-
-.login-form input{
-	border-radius:5px;
-	border:none;
-	padding:15px 10px;
-	background-color: #230381;
-	color:white;
-	width:100%;
-	display:block;
-	font-size: 1.1em;
-}
-
-::placeholder {
-	color: white;
-	opacity:0.75;
-  }
-
-.login-html input:focus{
-	background-color: #608BD2;
-	outline: none;
-}
-
-input[type="submit"]{
-	margin-top: 50px;
-	border:none;
-	background-color:#230381;
-}
-
-input[type="submit"]:focus{
-	border:solid 2px white;
-	background-color:#230381;
-}
-
-.login-html .tab{
-	font-size:22px;
-	margin-right:15px;
-	padding-bottom:5px;
-	margin:0 15px 10px 0;
-	display:inline-block;
-	border-bottom:2px solid transparent;
-}
-
-.login-html .sign-in:checked + .tab,
-.login-html .sign-up:checked + .tab{
-	border-color:white;
-	color:#230381;
-	font-weight: 2em;
-}
-
-.login-form{
-	min-height:345px;
-	position:relative;
-	perspective:1000px;
-	transform-style:preserve-3d;
-}
-
-.login-form .group label .icon{
-	width:15px;
-	height:15px;
-	border-radius:2px;
-	position:relative;
-	display:inline-block;
-	background:white;
-}
-
-.login-form .group label .icon:before,
-.login-form .group label .icon:after{
-	content:'';
-	width:10px;
-	height:2px;
-	background:#fff;
-	position:absolute;
-	transition:all .2s ease-in-out 0s;
-}
-
-.login-html .sign-in:checked + .tab + .sign-up + .tab + .login-form .sign-in-htm{
-	transform:rotate(0);
-}
-
-.login-html .sign-up:checked + .tab + .login-form .sign-up-htm{
-	transform:rotate(0);
-}
-
 .hr{
 	height: 2px;
 	margin: 30px auto;
@@ -629,6 +508,7 @@ input[type="submit"]:focus{
 	padding:7px 25px;
 	text-decoration:none;
 	text-shadow:0px 1px 0px #810e05;
+	margin:10px;
 }
 .myButton:hover {
 	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #f24437), color-stop(1, #c62d1f));
@@ -645,5 +525,26 @@ input[type="submit"]:focus{
 	top:1px;
 }
 
+.detail-img{
+	max-width: 15%;
+	width:100%;
+	border:solid black 1px;
+	border-radius: 15px;
+	margin-left: 10%;
+}
+
+.centre{
+	width:100%;
+	margin-top: 30px;
+}
+
+.centre ul li span{
+	font-weight:bold;
+}
+
+.detail-texte{
+	float: left;
+	margin-top: 2.5%;
+}
 
 /* very nice Checkbox */
