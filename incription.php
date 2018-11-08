@@ -1,7 +1,7 @@
 <?php
 include ('inc/pdo.php');
 include ('inc/header.php');
-include ('fonction.php');
+include ('inc/fonction.php');
 
 $errors = array();
 $success = false;
@@ -78,7 +78,7 @@ if(!empty($_POST['submit'])){
     $query -> bindValue(':token', $token, PDO::PARAM_STR);
     $query -> bindValue(':hash', $hash, PDO::PARAM_STR);
     $query -> execute();
-    // header('Location:redirection.php');
+    header('Location:redirection.php');
   }
 }
 

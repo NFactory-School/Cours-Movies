@@ -1,6 +1,6 @@
 <?php 
 include ('inc/header.php');
-include ('fonction.php');
+include ('inc/fonction.php');
 
   $sql = "SELECT genres FROM movies_full";
   $query = $pdo->prepare($sql);
