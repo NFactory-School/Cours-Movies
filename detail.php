@@ -14,17 +14,17 @@ $movie = $query -> fetch();
  // Afficher les détails du film en question
 ?>
 <ul>
-  <li><?php echo $movie['title']; ?></li>
-  <li><?php echo $movie['year']; ?></li>
-  <li><?php echo $movie['genres']; ?></li>
-  <li><?php echo $movie['plot']; ?></li>
-  <li><?php echo $movie['directors']; ?></li>
-  <li><?php echo $movie['cast']; ?></li>
-  <li><?php echo $movie['writers']; ?></li>
-  <li><?php echo $movie['runtime']; ?></li>
-  <li><?php echo $movie['mpaa']; ?></li>
-  <li><?php echo $movie['rating']; ?></li>
-  <li><?php echo $movie['popularity']; ?></li>
+  <li class="title"><span>Titre : </span><?php echo $movie['title']; ?></li>
+  <li class="year" ><span>Année de parution : </span><?php echo $movie['year']; ?></li>
+  <li class="genre"><span>genre : </span><?php echo $movie['genres']; ?></li>
+  <li class="plot"><span>synopsis : </span><?php echo $movie['plot']; ?></li>
+  <li class="directors"><span>réalisateur : </span><?php echo $movie['directors']; ?></li>
+  <li class="cast"><span>casting : </span><?php echo $movie['cast']; ?></li>
+  <li class ="writers"><span>scénaristes : </span><?php echo $movie['writers']; ?></li>
+  <li class="runtime"><span>durée : </span><?php echo $movie['runtime']; ?></li>
+  <li class="mpaa"><span>Notation MPAA : </span><?php echo $movie['mpaa']; ?></li>
+  <li class="rating"><span>Note : </span><?php echo $movie['rating']; ?></li>
+  <li class="popularity"><span>Popularité : </span><?php echo $movie['popularity']; ?></li>
 </ul>
 
 
