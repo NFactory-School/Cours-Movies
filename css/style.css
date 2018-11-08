@@ -48,9 +48,7 @@ body {
 	margin: 0;
 }
 
-.header .header-limiter h1 span {
-	color: #608bd2;
-}
+
 
 /* nav */
 .header .header-limiter a {
@@ -59,12 +57,16 @@ body {
 }
 
 .header .header-limiter nav {
+  float: left;
+  width:20%;
 	font:16px Arial, Helvetica, sans-serif;
 	line-height: 40px;
 	float: right;
 }
 
 .header .header-limiter nav a{
+  float:right;
+  width:50%;
 	display: inline-block;
 	padding: 0 5px;
 	text-decoration:none;
@@ -75,7 +77,7 @@ body {
 
 .header .header-limiter nav a:hover{
   font-weight: bold;
-  color: #608bd2;
+  color: #FF0000;
 }
 
 
@@ -570,4 +572,7 @@ input[type="submit"]:focus{
 	height: 2px;
 	margin: 30px auto;
 	background:white;
+}
+.noporn {
+	color: #FF0000;
 }

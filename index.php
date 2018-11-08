@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php include('inc/header.php');
 
   $sql = "SELECT * FROM movies_full ORDER BY RAND() LIMIT 20";
