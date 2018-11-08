@@ -6,28 +6,29 @@
   $genres = $query->fetchAll();
 
   $tableau = array();
-  
+
   echo '<form class="categorie" action="index.php">';
   foreach ($genres as $genre) {
-  
+
   $g = $genre['genres'];
   $explodes = explode(',',$g);
-  
+
   foreach ($explodes as $explode) {
-  
+
     $ex = trim($explode);
-  
+
     if(!in_array($ex,$tableau)) {
-  
+
       if(!empty($ex)) {
-  
+
         $tableau[] = $ex;
-        echo '<input type="checkbox" name="'.$ex.'" value="'.$ex.'">'.$ex.'<br>';
+        echo '<input class="check" type="checkbox" name="'.$ex.'" value="'.$ex.'">'.$ex.'<br>';
       }
     }
   }
-}
-
+}?>
+<div class="clear"></div>
+<?php
 echo '</form>';
 
   $sql = "SELECT * FROM movies_full ORDER BY RAND() LIMIT 8";
