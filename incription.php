@@ -1,6 +1,7 @@
 <?php
 include ('inc/pdo.php');
 include ('inc/header.php');
+include ('fonction.php');
 
 $errors = array();
 $success = false;

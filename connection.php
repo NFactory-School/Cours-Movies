@@ -1,7 +1,8 @@
 <?php
 include ('inc/pdo.php');
-
 include ('inc/header.php');
+include ('fonction.php');
+
 ?>
 
 <?php if(!empty($_POST['submit'])){
