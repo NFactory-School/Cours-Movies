@@ -1,3 +1,8 @@
 posters/
+.DS_Store
 pdo.php
+cdc.php
 *.sql
+*.zip
+.*
+!.gitignore
