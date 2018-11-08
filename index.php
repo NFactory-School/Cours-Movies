@@ -1,5 +1,35 @@
 <?php include('inc/header.php');
 
+  $sql = "SELECT genres FROM movies_full";
+  $query = $pdo->prepare($sql);
+  $query->execute();
+  $genres = $query->fetchAll();
+
+  $tableau = array();
+  
+  echo '<form class="categorie" action="index.php">';
+  foreach ($genres as $genre) {
+  
+  $g = $genre['genres'];
+  $explodes = explode(',',$g);
+  
+  foreach ($explodes as $explode) {
+  
+    $ex = trim($explode);
+  
+    if(!in_array($ex,$tableau)) {
+  
+      if(!empty($ex)) {
+  
+        $tableau[] = $ex;
+        echo '<input type="checkbox" name="'.$ex.'" value="'.$ex.'">'.$ex.'<br>';
+      }
+    }
+  }
+}
+
+echo '</form>';
+
   $sql = "SELECT * FROM movies_full ORDER BY RAND() LIMIT 8";
   $query = $pdo->prepare($sql);
   $query->execute();
@@ -21,14 +51,14 @@ foreach ($movies as $movie) { ?>
     </div>
   </div>
 <?php } ?>
-</div>
+
 
 <div class="clear"></div>
 
-<a class="more" href="index.php">Plus de film</a>
+<a class="myButton" href="index.php">Plus de film</a>
 <br/>
 
-
+</div>
 
 
 <?php include('inc/footer.php'); ?>
