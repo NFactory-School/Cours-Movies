@@ -1,6 +1,8 @@
 posters/
-.pdo.php
-.*.sql
-.movies_full.sql.zip
-.cdc.php
-..DS_Store
+.DS_Store
+pdo.php
+cdc.php
+*.sql
+*.zip
+.*
+!.gitignore
