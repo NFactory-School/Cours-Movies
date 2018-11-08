@@ -12,7 +12,7 @@ foreach ($movies as $movie) { ?>
   <div class="film">
     <br/>
     <h2><?php echo $movie['title']; ?></h2>
-      <a href="detail.php?id=<?php echo $movie['id']; ?>">
+      <a href="detail.php?slug=<?php echo $movie['slug']; ?>">
         <img src="posters/<?php echo $movie['id'].".jpg" ?>" alt="<?php echo $movie['title'] ?> ">
       </a>
   </div>
