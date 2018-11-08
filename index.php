@@ -16,7 +16,8 @@ foreach ($movies as $movie) { ?>
       </a>
     </div>
     <div class="titre">
-      <h2><?php echo $movie['title'], $movie['year']; ?></h2>
+      <h2><?php echo $movie['title']; ?></h2>
+      <h2><?php echo $movie['year']; ?></h2>
     </div>
   </div>
 <?php } ?>
