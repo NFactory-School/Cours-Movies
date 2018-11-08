@@ -11,7 +11,6 @@ body {
 }
 
 .wrap {
-	max-width: 220px;
 	width:100%;
 }
 
@@ -405,6 +404,27 @@ body {
 	margin-left:20%;
 	font-size: 1.4em;
 	font-style: bold;
+}
+
+/* index */
+.film{
+  float:left;
+  width:45%;
+  margin : 10px;
+  border : 1px solid black;
+  border-radius: 5px;
+  height:530px;
+}
+
+.poster{
+  float:left;
+  margin : 20px;
+  width:40%;
+}
+
+.titre{
+  float:right;
+  width : 50%;
 }
 
 

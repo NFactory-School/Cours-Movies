@@ -3,8 +3,9 @@
 <?php include ('inc/header.php'); ?>
 
 <?php
+
+// Recuperer l'ID du Film
 $id = $_GET['slug'];
- // Recuperer l'ID du Film
 $sql = "SELECT * FROM movies_full WHERE slug = :id";
 $query = $pdo -> prepare($sql);
 $query -> bindValue(':id', $id, PDO::PARAM_STR);
@@ -29,6 +30,7 @@ $movie = $query -> fetch();
     <li class="popularity"><span>Popularité : </span><?php echo $movie['popularity']; ?></li>
   </ul>
 </div>
+<div class="clear"></div>
 
 
 <?php include ('inc/footer.php'); ?>
