@@ -1,6 +1,7 @@
+<?php include 'pdo.php' ?>
+<?php include 'fonction.php' ?>
 <!DOCTYPE HTML>
 <html>
-<?php include 'pdo.php' ?>
 	<head>
     <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
