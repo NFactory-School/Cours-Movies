@@ -1,5 +1,5 @@
 <?php include 'pdo.php' ?>
-<?php include 'fonction.php' ?>
+
 <!DOCTYPE HTML>
 <html>
 	<head>

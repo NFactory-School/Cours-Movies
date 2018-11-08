@@ -1,6 +1,5 @@
 <!DOCTYPE HTML>
 <html>
-<?php include 'pdo.php' ?>
 	<head>
     <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +8,7 @@
 
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Fondamento" rel="stylesheet">
-	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/style_bo.css">
 	</head>
 
 	<body>
@@ -17,7 +16,7 @@
 		<header class="header">
 			<div class="header-limiter">
 				<h1><a href="index.php">Streaming Gratuit<span class="noporn"> No Porn</span></a></h1>
-				<?php include 'nav.php' ?>
+				<?php include('../../inc/nav.php') ?>
 			</div>
 		</header>
 		<div class="header-fixed-placeholder"></div>
