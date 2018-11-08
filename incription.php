@@ -1,6 +1,5 @@
 <?php
 include ('inc/pdo.php');
-
 include ('inc/header.php');
 
 $errors = array();
