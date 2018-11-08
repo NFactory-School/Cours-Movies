@@ -7,6 +7,25 @@
 
 <div class="wrap">
 
+<form>
+  <input type="checkbox" name="all" selected value="">Action<br>
+  <input type="checkbox" name="vehicle3" value="Boat"> Biographie<br>
+  <input type="checkbox" name="vehicle2" value="Car"> Crime<br>
+  <input type="checkbox" name="vehicle3" value="Boat"> Drama<br>
+</form>
+
+<?php 
+  $sql = "SELECT DISTINCT genres FROM movies_full ORDER BY genres DESC";
+  $query = $pdo->prepare($sql);
+  $query->execute();
+  $genre = $query->fetchAll(); 
+
+  foreach ($movies as $movie) {
+  echo $movie["genres"];
+  echo '<br/>';
+  }
+?>
+
 <?php foreach ($movies as $movie) {
 
   echo '<div class="film">'; 
@@ -16,10 +35,11 @@
         echo '<img src="posters/'.$movie["id"].".jpg".'" alt="'.$movie["title"].'">';
       echo '</a>';
   echo '</div>';
-} ?>
+}
 
-</div>
+echo '</div>';
 
-<a class="more" href="index.php">Plus de film</a>
+echo '<br/>';
+echo '<a class="more" href="index.php">Plus de film</a>';
 
-<?php include('inc/footer.php'); ?>
+include('inc/footer.php');
