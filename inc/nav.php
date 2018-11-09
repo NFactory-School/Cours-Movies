@@ -1,22 +1,13 @@
+
 <nav>
   <?php
-                  if (!empty($_SESSION['user']))
-                  {
-                  ?>
-                <ul>
-                  <li><a href="profil.php">Bienvenue <? echo $_SESSION['pseudo'];?></a></li>
-                  <li><a href="deconnection.php">Deconnexion</a></li>
-                </ul>
-                  <?php
-                      }
-                      else
-                      {
-                  ?>
-                <ul>
-                  <li id="services"><a href="incription.php">Inscription</a></li>
-                  <li id="services"><a href="connection.php">Connexion</a></li>
-                </ul>
-                  <?php
-                  }
-                  ?>
+
+        if (islogged()==false) {
+          echo '<p> <a href="inscription.php"> Inscription </a> </li>
+          <p> <a href="connection.php"> Connexion </a> </p>';
+        }else{
+          echo '<p>Bienvenue : '. $_SESSION['user']['pseudo'] .' </p> <br/>
+          <p> <a href="deconnection.php"> Deconnexion </a> </p>';
+        }
+  ?>
 </nav>
