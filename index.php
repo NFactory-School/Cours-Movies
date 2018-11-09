@@ -9,7 +9,7 @@ include ('inc/fonction.php');
 
   $tableau = array();
 
-  echo '<form class="categorie" action="index.php" method="post">';
+  echo '<form class="categorie-genre" action="index.php" method="post">';
   foreach ($genres as $genre) {
 
   $g = $genre['genres'];
@@ -30,22 +30,27 @@ include ('inc/fonction.php');
   }
 }
 ?>
-<select name="date">
-  <option value="Avant 1920">Volvo</option>
-  <option value="saab">Saab</option>
-  <option value="opel">Opel</option>
-  <option value="audi">Audi</option>
+
+<select class="categorie-date" name="date">
+  <option selected value="nodate">- Par date -</option>
+  <option value="antique">Avant 1920</option>
+  <option value="vieux">1920 - 1950</option>
+  <option value="ancien">1950 - 1990</option>
+  <option value="moderne">Après 1990</option>
 </select>
 
 <input type="submit" name="tri" value="">
-<?php
-  ?>
+</form>
+<br/>
+
 <div class="clear"></div>
+
 <?php
-echo '</form>';
+
 
 $sql="SELECT * FROM movies_full WHERE 1=1";
-  if(!empty('tri')){
+
+  if(!empty($_POST['tri'])){
     foreach ($tableau as $tab) {
 
       if (!empty($_POST[$tab])){
@@ -55,17 +60,26 @@ $sql="SELECT * FROM movies_full WHERE 1=1";
       }
     }
 }
+    echo $_POST['date'].'<br/>';
+    
+    switch ($_POST['date']) {
 
-  /*if(!empty('tri')){
-    foreach ($tableau as $tab) {
-
-      if (!empty($_POST[$tab])){
-
-      $sql .= " OR genres LIKE '%$tab%'";
-
-      }
-  }
-}*/
+      case "antique":
+        $sql .= " AND year < 1920";
+      break;
+  
+      case "vieux":
+        $sql .= " AND year < 1920";
+      break;
+  
+      case "ancien":
+        $sql .= " AND year BETWEEN 1950 AND 1990";
+      break;
+          
+      case "moderne":
+        $sql .= " AND year > 1990";
+      break;
+    }
 
   $sql .= " ORDER BY RAND() LIMIT 8;";
   echo $sql;
