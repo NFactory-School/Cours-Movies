@@ -7,8 +7,6 @@
 			<a href="http://forum.doctissimo.fr/sante/vaccination/liste_sujet-1.htm">Blog</a>
 			·
 			<a href="#">Qui sommes nous ?</a>
-			·
-			<a href="#">Contact</a>
 		</p>
 		<p class="footer-company-name">VAX &copy; 2015</p>
 	</div>
@@ -34,7 +32,7 @@
 
 	<div class="footer-right">
 		<h3>A propos</h3>
-		<p class="about"> Vax est une plateforme d'information et de communication sur les vaccins présents en France. Plus de 10000 professionels de la santé sont actuellement inscrits sur VAX. </p>
+		<p class="about"> Streaming Gratuit | No Porn est une plateforme de conseil tenu par des cinéphiles sans films potentiellement choquant pour les plus jeunes</p>
 
 		<div class="footer-icons">
 			<div class="icon facebook"><a href="#"></a></div>
