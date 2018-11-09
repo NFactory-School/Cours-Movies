@@ -1,5 +1,5 @@
 <?php
-include ('inc/pdo.php'); 
+include ('inc/pdo.php');
 include ('inc/fonction.php');
 include ('inc/header.php');
 
@@ -10,23 +10,30 @@ include ('inc/header.php');
   $genres = $query->fetchAll();
 
   $tableau = array();
-
+  echo '<div class="niko">';
   echo '<form class="categorie-genre" action="index.php" method="post">';
-
   foreach ($genres as $genre) {
+
   $g = $genre['genres'];
   $explodes = explode(',',$g);
 
   foreach ($explodes as $explode) {
+
     $ex = trim($explode);
+
     if(!in_array($ex,$tableau)) {
+
       if(!empty($ex)) {
+
         $tableau[] = $ex;
+
         if (!empty($_POST[$ex])){
-          echo '<input checked class="'.$ex.'" type="checkbox" name="'.$ex.'" value="'.$ex.'">'.$ex.'<br/>';
+
+          echo '<input checked class="'.$ex.'" type="checkbox" name="'.$ex.'" value="'.$ex.'">'.$ex.'';
         }
         else {
-          echo '<input class="'.$ex.'" type="checkbox" name="'.$ex.'" value="'.$ex.'">'.$ex.'<br/>';
+
+          echo '<input class="'.$ex.'" type="checkbox" name="'.$ex.'" value="'.$ex.'">'.$ex.'';
         }
 
       }
@@ -34,7 +41,7 @@ include ('inc/header.php');
   }
 }
 ?>
-
+<br>
 <select class="categorie-date" name="date">
   <option <?php if (!empty($_POST['date']) && $_POST['date'] == "nodate"){echo "selected";} ?> value="nodate">- Par date -</option>
   <option <?php if (!empty($_POST['date']) && $_POST['date'] == "antique"){echo "selected";} ?> value="antique">Avant 1920</option>
@@ -43,8 +50,9 @@ include ('inc/header.php');
   <option <?php if (!empty($_POST['date']) && $_POST['date'] == "moderne"){echo "selected";} ?> value="moderne">Après 1990</option>
 </select>
 
-<input type="submit" name="tri" value="FILTRER">
+<input type="submit" name="tri" value="Filtrer">
 </form>
+</div>
 <br/>
 
 <div class="clear"></div>
@@ -59,7 +67,7 @@ $sql="SELECT * FROM movies_full WHERE 1=1";
 
       if (!empty($_POST[$tab])){
 
-      $sql .= " OR genres LIKE '%$tab%'";
+      $sql .= " AND genres LIKE '%$tab%'";
 
       }
     }
@@ -86,7 +94,7 @@ if (!empty($_POST['date'])){
     }
 }
 
-echo '<a class="myButton more" href="index.php"><span>+</span> Plus de film</a>';
+echo '<a class="myButton more" href="index.php">Plus de film</a>';
 
   $sql .= " ORDER BY RAND() LIMIT 8;";
   $query = $pdo->prepare($sql);
