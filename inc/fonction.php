@@ -83,4 +83,17 @@ function isLogged(){
 }
 return false;
 }
+
+function isAdmin($type) {
+  $type='';
+  if(!empty($type)){
+    if ($type=='user') {
+      header('Location: ../403.php');
+    }
+    elseif ($type=='admin'){
+    }
+  }else{header('Location: ../403.php');}
+  return $type;
+}
+
 ?>

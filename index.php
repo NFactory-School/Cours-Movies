@@ -11,7 +11,7 @@ include ('inc/header.php');
 
   $tableau = array();
 
-  echo '<form class="categorie" action="index.php" method="post">';
+  echo '<form class="categorie-genre" action="index.php" method="post">';
   foreach ($genres as $genre) {
 
   $g = $genre['genres'];
@@ -26,51 +26,76 @@ include ('inc/header.php');
       if(!empty($ex)) {
 
         $tableau[] = $ex;
-        echo '<input id="cbx" type="checkbox" name="'.$ex.'" value="'.$ex.'">'.$ex.'<br/>';
+
+        if (!empty($_POST[$ex])){
+
+          echo '<input checked class="'.$ex.'" type="checkbox" name="'.$ex.'" value="'.$ex.'">'.$ex.'<br/>';
+        }
+        else {
+
+          echo '<input class="'.$ex.'" type="checkbox" name="'.$ex.'" value="'.$ex.'">'.$ex.'<br/>';
+        }
+
       }
     }
   }
 }
 ?>
-<select name="date">
-  <option value="Avant 1920">Volvo</option>
-  <option value="saab">Saab</option>
-  <option value="opel">Opel</option>
-  <option value="audi">Audi</option>
+
+<select class="categorie-date" name="date">
+  <option <?php if (!empty($_POST['date']) && $_POST['date'] == "nodate"){echo "selected";} ?> value="nodate">- Par date -</option>
+  <option <?php if (!empty($_POST['date']) && $_POST['date'] == "antique"){echo "selected";} ?> value="antique">Avant 1920</option>
+  <option <?php if (!empty($_POST['date']) && $_POST['date'] == "vieux"){echo "selected";} ?> value="vieux">1920 - 1950</option>
+  <option <?php if (!empty($_POST['date']) && $_POST['date'] == "ancien"){echo "selected";} ?> value="ancien">1950 - 1990</option>
+  <option <?php if (!empty($_POST['date']) && $_POST['date'] == "moderne"){echo "selected";} ?> value="moderne">Après 1990</option>
 </select>
 
 <input type="submit" name="tri" value="">
-<?php
-  ?>
+</form>
+<br/>
+
 <div class="clear"></div>
+
 <?php
-echo '</form>';
+
 
 $sql="SELECT * FROM movies_full WHERE 1=1";
-  if(!empty('tri')){
+
+  if(!empty($_POST['tri'])){
     foreach ($tableau as $tab) {
 
       if (!empty($_POST[$tab])){
 
-      $sql .= " OR genres LIKE '%$tab%'";
+      $sql .= " AND genres LIKE '%$tab%'";
 
       }
     }
 }
 
-  /*if(!empty('tri')){
-    foreach ($tableau as $tab) {
+if (!empty($_POST['date'])){
+    switch ($_POST['date']) {
 
-      if (!empty($_POST[$tab])){
+      case "antique":
+        $sql .= " AND year < 1920";
+      break;
 
-      $sql .= " OR genres LIKE '%$tab%'";
+      case "vieux":
+        $sql .= " AND year < 1920";
+      break;
 
-      }
-  }
-}*/
+      case "ancien":
+        $sql .= " AND year BETWEEN 1950 AND 1990";
+      break;
+
+      case "moderne":
+        $sql .= " AND year > 1990";
+      break;
+    }
+}
+
+echo '<a class="myButton more" href="index.php">Plus de film</a>';
 
   $sql .= " ORDER BY RAND() LIMIT 8;";
-  echo $sql;
   $query = $pdo->prepare($sql);
   $query->execute();
   $movies = $query->fetchAll();
@@ -108,7 +133,6 @@ foreach ($movies as $movie) { ?>
 
 <div class="clear"></div>
 
-<a class="myButton" href="index.php">Plus de film</a>
 <br/>
 
 </div>
