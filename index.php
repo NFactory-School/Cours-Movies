@@ -24,7 +24,16 @@ include ('inc/fonction.php');
       if(!empty($ex)) {
 
         $tableau[] = $ex;
-        echo '<input class="'.$ex.'" type="checkbox" name="'.$ex.'" value="'.$ex.'">'.$ex.'<br/>';
+
+        if (!empty($_POST[$ex])){
+
+          echo '<input selected class="'.$ex.'" type="checkbox" name="'.$ex.'" value="'.$ex.'">'.$ex.'<br/>';
+        }
+        else {
+
+          echo '<input class="'.$ex.'" type="checkbox" name="'.$ex.'" value="'.$ex.'">'.$ex.'<br/>';
+        }
+        
       }
     }
   }
