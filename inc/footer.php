@@ -32,7 +32,7 @@
 
 	<div class="footer-right">
 		<h3>A propos</h3>
-		<p class="about"> Streaming Gratuit | No Porn est une plateforme de conseil tenu par des cinéphiles sans films potentiellement choquant pour les plus jeunes</p>
+		<p class="about"> Streaming Gratuit | No Porn est une plateforme de conseil tenu par des cinéphiles sans contenu potentiellement choquant pour les plus jeunes.</p>
 
 		<div class="footer-icons">
 			<div class="icon facebook"><a href="#"></a></div>
