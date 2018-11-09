@@ -1,5 +1,3 @@
-<?php include 'pdo.php' ?>
-
 <!DOCTYPE HTML>
 <html>
 	<head>
