@@ -1,22 +1,22 @@
 <?php include('../inc/fonction.php');
 include('../inc/pdo.php');
 //verif admin
-isAdmin($_SESSION['user']['role']);
+//isAdmin($_SESSION['user']['role']);
 
 
 //selectionne tous les films
-$id = $_GET['slug'];
+    $id = $_GET['slug'];
     $sql = "SELECT * FROM movies_full WHERE slug = :id ORDER BY title ASC LIMIT 100";
     $query = $pdo->prepare($sql);
     $query -> bindValue(':id', $id, PDO::PARAM_STR);
     $query->execute();
     $films = $query->fetchAll();
 
-foreach ($is as $i) {
-    if($plus==1){
-        $sql.="OFFSET $i";
-    }
-}
+//foreach ($is as $i) {
+//    if($plus==1){
+//        $sql.="OFFSET $i";
+//    }
+//}
 
 
 include('inc/header.php'); ?>
