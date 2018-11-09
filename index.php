@@ -112,7 +112,7 @@ foreach ($movies as $movie) { ?>
   <div class="film">
       <br/>
     <div class="poster">
-      <a href="detail.php?slug=<?php echo $movie['slug']; ?>">
+      <a href="detail.php?slug=<?php echo $movie['slug']; ?>&<?php if(!empty($_SESSION['user'])){echo $_SESSION['user'];} ?>">
         <?php
         $poster = $movie['id'].".jpg";
           $chemin = "posters/".$poster;
