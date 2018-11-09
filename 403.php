@@ -1,4 +1,7 @@
-<?php include ('inc/header.php') ?>
+<?php 
+include ('inc/pdo.php');
+include ('inc/fonction.php');
+include ('inc/header.php'); ?>
 
 <a class="back" href ="index.php">
     <div class="container">

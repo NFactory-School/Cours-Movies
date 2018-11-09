@@ -86,7 +86,7 @@ if (!empty($_POST['date'])){
     }
 }
 
-echo '<a class="myButton more" href="index.php">Plus de film</a>';
+echo '<a class="myButton more" href="index.php"><span>+</span> Plus de film</a>';
 
   $sql .= " ORDER BY RAND() LIMIT 8;";
   $query = $pdo->prepare($sql);
