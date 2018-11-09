@@ -100,7 +100,7 @@ if (!empty($_POST['date'])){
 
 echo '<a class="myButton more" href="index.php">Plus de film</a>';
 
-  $sql .= " ORDER BY RAND() LIMIT 8;";
+  $sql .= " ORDER BY RAND() LIMIT 9;";
   $query = $pdo->prepare($sql);
   $query->execute();
   $movies = $query->fetchAll();
