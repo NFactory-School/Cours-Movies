@@ -32,11 +32,11 @@ include ('inc/fonction.php');
 ?>
 
 <select class="categorie-date" name="date">
-  <option selected value="nodate">- Par date -</option>
-  <option value="antique">Avant 1920</option>
-  <option value="vieux">1920 - 1950</option>
-  <option value="ancien">1950 - 1990</option>
-  <option value="moderne">Après 1990</option>
+  <option <?php if ($_POST['date'] == "nodate"){echo "selected";}; ?> value="nodate">- Par date -</option>
+  <option <?php if ($_POST['date'] == "antique"){echo "selected";}; ?> value="antique">Avant 1920</option>
+  <option <?php if ($_POST['date'] == "vieux"){echo "selected";}; ?> value="vieux">1920 - 1950</option>
+  <option <?php if ($_POST['date'] == "ancien"){echo "selected";}; ?> value="ancien">1950 - 1990</option>
+  <option <?php if ($_POST['date'] == "moderne"){echo "selected";}; ?> value="moderne">Après 1990</option>
 </select>
 
 <input type="submit" name="tri" value="">
