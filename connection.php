@@ -1,6 +1,7 @@
 <?php
 include ('inc/pdo.php');
 include ('inc/fonction.php');
+include ('inc/header.php');
 
 
 ?>
@@ -44,8 +45,6 @@ else{
   }
 }
 
-
-include ('inc/header.php');
 ?>
 
 <div class="wrap">

@@ -1,9 +1,8 @@
-
 <nav>
   <?php
 
         if (islogged()==false) {
-          echo '<p> <a href="inscription.php"> Inscription </a> </li>
+          echo '<p> <a href="incription.php"> Inscription </a> </li>
           <p> <a href="connection.php"> Connexion </a> </p>';
         }else{
           echo '<p>Bienvenue : '. $_SESSION['user']['pseudo'] .' </p> <br/>
