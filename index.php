@@ -55,7 +55,7 @@ $sql="SELECT * FROM movies_full WHERE 1=1";
 
       if (!empty($_POST[$tab])){
 
-      $sql .= " OR genres LIKE '%$tab%'";
+      $sql .= " AND genres LIKE '%$tab%'";
 
       }
     }
