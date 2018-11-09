@@ -714,6 +714,23 @@ body {
   border : 1px solid black;
   border-radius: 5px;
 }
-.niko input[type="checkbox"]{
-  margin-right: 10px;
+
+.niko input{
+	cursor: pointer;
+}
+
+.niko span{
+	padding-left: 25px;
+}
+
+.niko span:first-child{
+	margin:none;
+}
+
+[type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+
+	border: 1px solid #aaa;
+  background: #f8f8f8;
+	border-radius: 5px;
+	width: 17px; height: 17px;
 }

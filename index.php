@@ -12,28 +12,39 @@ include ('inc/header.php');
   $tableau = array();
   echo '<div class="niko">';
   echo '<form class="categorie-genre" action="index.php" method="post">';
+  $counter = 0;
   foreach ($genres as $genre) {
 
   $g = $genre['genres'];
   $explodes = explode(',',$g);
+  
 
   foreach ($explodes as $explode) {
-
+    
     $ex = trim($explode);
 
     if(!in_array($ex,$tableau)) {
-
+      
       if(!empty($ex)) {
+
+        $counter = $counter+1;
+
+          if ($counter == 6){
+            $retour = "<br/>";
+            $counter = 0;
+          }
+          else {
+            $retour = " ";
+          }
 
         $tableau[] = $ex;
 
         if (!empty($_POST[$ex])){
-
-          echo ''.$ex.'<input checked class="'.$ex.'" type="checkbox" name="'.$ex.'" value="'.$ex.'">';
+          echo '<span>'.$ex.'<input checked class="checkbox-genres checked" type="checkbox" name="'.$ex.'" value="'.$ex.'">'.$retour;
         }
         else {
-
-          echo ''.$ex.'<input class="'.$ex.'" type="checkbox" name="'.$ex.'" value="'.$ex.'">';
+            echo '<span>'.$ex.'<input class="checkbox-genres" type="checkbox" name="'.$ex.'" value="'.$ex.'">'.$retour;
+          
         }
 
       }
@@ -67,7 +78,7 @@ $sql="SELECT * FROM movies_full WHERE 1=1";
 
       if (!empty($_POST[$tab])){
 
-      $sql .= " AND genres LIKE '%$tab%'";
+      $sql .= " OR genres LIKE '%$tab%'";
 
       }
     }
