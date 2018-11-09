@@ -658,3 +658,8 @@ body {
 	bottom: 5%;
 	right: 0;
 }
+
+.more span{
+	font-weight: bold;
+	font-size: 1.25em;
+}
