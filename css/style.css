@@ -10,10 +10,6 @@ body {
 	background-color: #dcdcdc;
 }
 
-.wrap {
-	width:100%;
-}
-
 /* header */
 .header {
 	background-color:#292c2f;
@@ -419,11 +415,17 @@ body {
 
 .film{
   float:left;
-  width:45%;
-  margin : 10px;
-  border : 1px solid black;
+	width:50%;
+	padding:10px;
+  border:1px solid black;
   border-radius: 5px;
-  height:550px;
+	height:550px;
+}
+
+.films{
+	padding-top:20px;
+	margin:0 auto;
+	width:90%;
 }
 
 .poster{
@@ -702,6 +704,13 @@ body {
   display:inline;
 }
 
+.categorie-date{
+	color:white;
+	background-color: #c62d1f;
+	padding:10px 15px;
+	border-radius:5px;
+}
+
 .caseetgenre{
 	width:25%;
 	float:left;
@@ -709,6 +718,7 @@ body {
 
 .listetsubmit{
 	width: 25%;
+	margin-top: 20px;
 	float:right;
 }
 
@@ -717,7 +727,8 @@ body {
   margin: 20px;
   width:50%;
   border : 1px solid black;
-  border-radius: 5px;
+	border-radius: 5px;
+	margin:0 auto;
 }
 
 .niko input{

@@ -54,12 +54,11 @@ include ('inc/header.php');
   <option <?php if (!empty($_POST['date']) && $_POST['date'] == "moderne"){echo "selected";} ?> value="moderne">Après 1990</option>
 </select>
 
-<input type="submit" name="tri" value="Filtrer">
+<input class="myButton" type="submit" name="tri" value="Filtrer">
 </div>
 <div class="clear"></div>
 </form>
 </div>
-<div class="clear"></div>
 
 <?php
 
@@ -105,9 +104,10 @@ echo '<a class="myButton more" href="index.php">Plus de film</a>';
   $query->execute();
   $movies = $query->fetchAll();
 
+  echo '<div class="films">';
+
 foreach ($movies as $movie) { ?>
 
-<div class="wrap">
   <div class="film">
       <br/>
     <div class="poster">
@@ -135,7 +135,7 @@ foreach ($movies as $movie) { ?>
   </div>
 <?php } ?>
 
-
+</div>
 <div class="clear"></div>
 
 <br/>
