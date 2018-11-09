@@ -12,7 +12,6 @@ include ('inc/header.php');
   $tableau = array();
   echo '<div class="niko">';
   echo '<form class="categorie-genre" action="index.php" method="post">';
-  $counter = 0;
   foreach ($genres as $genre) {
 
   $g = $genre['genres'];
@@ -27,23 +26,17 @@ include ('inc/header.php');
       
       if(!empty($ex)) {
 
-        $counter = $counter+1;
-
-          if ($counter == 6){
-            $retour = "<br/>";
-            $counter = 0;
-          }
-          else {
-            $retour = " ";
-          }
-
         $tableau[] = $ex;
 
         if (!empty($_POST[$ex])){
-          echo '<span>'.$ex.'<input checked class="checkbox-genres checked" type="checkbox" name="'.$ex.'" value="'.$ex.'">'.$retour;
+          echo '<div class="caseetgenre">';
+          echo '<span>'.$ex.'</span><input checked class="checkbox-genres checked" type="checkbox" name="'.$ex.'" value="'.$ex.'">';
+          echo '</div>';
         }
         else {
-            echo '<span>'.$ex.'<input class="checkbox-genres" type="checkbox" name="'.$ex.'" value="'.$ex.'">'.$retour;
+          echo '<div class="caseetgenre">';
+          echo '<span>'.$ex.'</span><input class="checkbox-genres" type="checkbox" name="'.$ex.'" value="'.$ex.'">';
+          echo '</div>';
           
         }
 
@@ -52,7 +45,7 @@ include ('inc/header.php');
   }
 }
 ?>
-<br>
+<div class="listetsubmit">
 <select class="categorie-date" name="date">
   <option <?php if (!empty($_POST['date']) && $_POST['date'] == "nodate"){echo "selected";} ?> value="nodate">- Par date -</option>
   <option <?php if (!empty($_POST['date']) && $_POST['date'] == "antique"){echo "selected";} ?> value="antique">Avant 1920</option>
@@ -62,10 +55,10 @@ include ('inc/header.php');
 </select>
 
 <input type="submit" name="tri" value="Filtrer">
+</div>
+<div class="clear"></div>
 </form>
 </div>
-<br/>
-
 <div class="clear"></div>
 
 <?php
