@@ -60,8 +60,8 @@ $sql="SELECT * FROM movies_full WHERE 1=1";
       }
     }
 }
-    echo $_POST['date'].'<br/>';
-    
+
+if (!empty($_POST['date'])){
     switch ($_POST['date']) {
 
       case "antique":
@@ -80,6 +80,7 @@ $sql="SELECT * FROM movies_full WHERE 1=1";
         $sql .= " AND year > 1990";
       break;
     }
+}
 
   $sql .= " ORDER BY RAND() LIMIT 8;";
   echo $sql;
