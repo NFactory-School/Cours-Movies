@@ -84,7 +84,7 @@ if (!empty($_POST['date'])){
       break;
 
       case "vieux":
-        $sql .= " AND year < 1920";
+        $sql .= " AND year BETWEEN 1920 AND 1950";
       break;
 
       case "ancien":
@@ -117,12 +117,12 @@ foreach ($movies as $movie) { ?>
           $chemin = "posters/".$poster;
           if (file_exists($chemin)){
             ?>
-            <img src="posters/<?php echo $poster ?>" alt="<?php echo $movie['title'] ?> ">
+            <img class="imgposter" src="posters/<?php echo $poster ?>" alt="<?php echo $movie['title'] ?> ">
             <?php
           }
           else {
             ?>
-            <img src="img/notfound.jpg" alt="picture not found">
+            <img class="imgposter" src="img/notfound.jpg" alt="picture not found">
             <?php
           }
         ?>

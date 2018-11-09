@@ -426,19 +426,25 @@ body {
 	padding-top:20px;
 	margin:0 auto;
 	width:90%;
+	position:relative;
 }
 
 .poster{
   border-radius: 5px;
   float:left;
-  margin : 20px;
-  width:40%;
+	margin : 20px;
+	max-width:50%;
 }
+
+.imgposter{
+	width:75%;
+	border-radius: 15px;
+}
+
 
 .titre{
   font-family: 'Pacifico', cursive;
   padding-top:200px;
-  float:right;
   width : 50%;
   font-size: 1.5em;
 }
@@ -705,6 +711,7 @@ body {
 }
 
 .categorie-date{
+	all:none;
 	color:white;
 	background-color: #c62d1f;
 	padding:10px 15px;
