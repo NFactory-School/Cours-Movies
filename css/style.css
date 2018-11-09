@@ -708,9 +708,12 @@ body {
 }
 
 .niko{
-  pdding:10px;
+  padding:15px;
   margin: 20px;
   width:50%;
   border : 1px solid black;
   border-radius: 5px;
+}
+.niko input[type="checkbox"]{
+  margin-right: 10px;
 }

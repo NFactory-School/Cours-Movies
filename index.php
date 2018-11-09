@@ -29,11 +29,11 @@ include ('inc/header.php');
 
         if (!empty($_POST[$ex])){
 
-          echo '<input checked class="'.$ex.'" type="checkbox" name="'.$ex.'" value="'.$ex.'">'.$ex.'';
+          echo ''.$ex.'<input checked class="'.$ex.'" type="checkbox" name="'.$ex.'" value="'.$ex.'">';
         }
         else {
 
-          echo '<input class="'.$ex.'" type="checkbox" name="'.$ex.'" value="'.$ex.'">'.$ex.'';
+          echo ''.$ex.'<input class="'.$ex.'" type="checkbox" name="'.$ex.'" value="'.$ex.'">';
         }
 
       }
