@@ -441,6 +441,46 @@ body {
   font-size: 1.5em;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .hr{
 	height: 2px;
 	margin: 30px auto;
@@ -479,6 +519,10 @@ body {
 	background:linear-gradient(to bottom, #f24437 5%, #c62d1f 100%);
 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f24437', endColorstr='#c62d1f',GradientType=0);
 	background-color:#f24437;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
 }
 
 .detail-img{
@@ -655,11 +699,18 @@ body {
 
 .more {
 	position:fixed;
-	bottom: 5%;
-	right: 0;
+	bottom: 10px;
+	right: 10px;
+}$
+
+.categorie-genre{
+  display:inline;
 }
 
-.more span{
-	font-weight: bold;
-	font-size: 1.25em;
+.niko{
+  pdding:10px;
+  margin: 20px;
+  width:50%;
+  border : 1px solid black;
+  border-radius: 5px;
 }
