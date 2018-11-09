@@ -24,11 +24,19 @@ include ('inc/fonction.php');
       if(!empty($ex)) {
 
         $tableau[] = $ex;
-        echo '<input id="cbx" type="checkbox" name="'.$ex.'" value="'.$ex.'">'.$ex.'<br>';
+        echo '<input id="cbx" type="checkbox" name="'.$ex.'" value="'.$ex.'">'.$ex.'<br/>';
       }
     }
   }
-}?>
+}
+?>
+<select name="date">
+  <option value="Avant 1920">Volvo</option>
+  <option value="saab">Saab</option>
+  <option value="opel">Opel</option>
+  <option value="audi">Audi</option>
+</select>
+
 <input type="submit" name="tri" value="">
 <?php
   ?>
@@ -46,10 +54,21 @@ $sql="SELECT * FROM movies_full WHERE 1=1";
 
       }
     }
-    $sql .= " ORDER BY RAND() LIMIT 8";
-    echo $sql;
 }
 
+  /*if(!empty('tri')){
+    foreach ($tableau as $tab) {
+
+      if (!empty($_POST[$tab])){
+
+      $sql .= " OR genres LIKE '%$tab%'";
+
+      }
+  }
+}*/
+
+  $sql .= " ORDER BY RAND() LIMIT 8;";
+  echo $sql;
   $query = $pdo->prepare($sql);
   $query->execute();
   $movies = $query->fetchAll();
