@@ -60,4 +60,6 @@ else{
   </form>
 </div>
 
+<?php if(isAdmin($_SESSION['user']['status'])){ header('Location: /back/back_office.php'); } ?>
+
 <?php include ('inc/footer.php');

@@ -85,14 +85,13 @@ return false;
 }
 
 function isAdmin($type) {
-  $type='';
   if(!empty($type)){
     if ($type=='user') {
-      header('Location: ../403.php');
+      header('Location: 403.php');
     }
-    elseif ($type=='admin'){
+    else{
     }
-  }else{header('Location: ../403.php');}
+  }else{header('Location: 403.php');}
   return $type;
 }
 
