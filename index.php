@@ -3,6 +3,7 @@ include ('inc/pdo.php');
 include ('inc/fonction.php');
 include ('inc/header.php');
 
+  
 
   $sql = "SELECT genres FROM movies_full";
   $query = $pdo->prepare($sql);
@@ -12,39 +13,32 @@ include ('inc/header.php');
   $tableau = array();
   echo '<div class="niko">';
   echo '<form class="categorie-genre" action="index.php" method="post">';
-  $counter = 0;
   foreach ($genres as $genre) {
 
   $g = $genre['genres'];
   $explodes = explode(',',$g);
-  
+
 
   foreach ($explodes as $explode) {
-    
+
     $ex = trim($explode);
 
     if(!in_array($ex,$tableau)) {
-      
+
       if(!empty($ex)) {
-
-        $counter = $counter+1;
-
-          if ($counter == 6){
-            $retour = "<br/>";
-            $counter = 0;
-          }
-          else {
-            $retour = " ";
-          }
 
         $tableau[] = $ex;
 
         if (!empty($_POST[$ex])){
-          echo '<span>'.$ex.'<input checked class="checkbox-genres checked" type="checkbox" name="'.$ex.'" value="'.$ex.'">'.$retour;
+          echo '<div class="caseetgenre">';
+          echo '<span>'.$ex.'</span><input checked class="checkbox-genres checked" type="checkbox" name="'.$ex.'" value="'.$ex.'">';
+          echo '</div>';
         }
         else {
-            echo '<span>'.$ex.'<input class="checkbox-genres" type="checkbox" name="'.$ex.'" value="'.$ex.'">'.$retour;
-          
+          echo '<div class="caseetgenre">';
+          echo '<span>'.$ex.'</span><input class="checkbox-genres" type="checkbox" name="'.$ex.'" value="'.$ex.'">';
+          echo '</div>';
+
         }
 
       }
@@ -52,7 +46,7 @@ include ('inc/header.php');
   }
 }
 ?>
-<br>
+<div class="listetsubmit">
 <select class="categorie-date" name="date">
   <option <?php if (!empty($_POST['date']) && $_POST['date'] == "nodate"){echo "selected";} ?> value="nodate">- Par date -</option>
   <option <?php if (!empty($_POST['date']) && $_POST['date'] == "antique"){echo "selected";} ?> value="antique">Avant 1920</option>
@@ -61,12 +55,11 @@ include ('inc/header.php');
   <option <?php if (!empty($_POST['date']) && $_POST['date'] == "moderne"){echo "selected";} ?> value="moderne">Après 1990</option>
 </select>
 
-<input type="submit" name="tri" value="Filtrer">
+<input class="myButton" type="submit" name="tri" value="Filtrer">
+</div>
+<div class="clear"></div>
 </form>
 </div>
-<br/>
-
-<div class="clear"></div>
 
 <?php
 
@@ -92,7 +85,7 @@ if (!empty($_POST['date'])){
       break;
 
       case "vieux":
-        $sql .= " AND year < 1920";
+        $sql .= " AND year BETWEEN 1920 AND 1950";
       break;
 
       case "ancien":
@@ -107,29 +100,30 @@ if (!empty($_POST['date'])){
 
 echo '<a class="myButton more" href="index.php">Plus de film</a>';
 
-  $sql .= " ORDER BY RAND() LIMIT 8;";
+  $sql .= " ORDER BY RAND() LIMIT 9;";
   $query = $pdo->prepare($sql);
   $query->execute();
   $movies = $query->fetchAll();
 
+  echo '<div class="films">';
+
 foreach ($movies as $movie) { ?>
 
-<div class="wrap">
   <div class="film">
       <br/>
     <div class="poster">
-      <a href="detail.php?slug=<?php echo $movie['slug']; ?>">
+      <a href="detail.php?slug=<?php echo $movie['slug']; ?>&<?php if(!empty($_SESSION['user'])){echo $_SESSION['user'];} ?>">
         <?php
         $poster = $movie['id'].".jpg";
           $chemin = "posters/".$poster;
           if (file_exists($chemin)){
             ?>
-            <img src="posters/<?php echo $poster ?>" alt="<?php echo $movie['title'] ?> ">
+            <img class="imgposter" src="posters/<?php echo $poster ?>" alt="<?php echo $movie['title'] ?> ">
             <?php
           }
           else {
             ?>
-            <img src="img/notfound.jpg" alt="picture not found">
+            <img class="imgposter" src="img/notfound.jpg" alt="picture not found">
             <?php
           }
         ?>
@@ -142,7 +136,7 @@ foreach ($movies as $movie) { ?>
   </div>
 <?php } ?>
 
-
+</div>
 <div class="clear"></div>
 
 <br/>
