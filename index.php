@@ -82,8 +82,9 @@ if (!empty($_POST['date'])){
     }
 }
 
+echo '<a class="myButton more" href="index.php">Plus de film</a>';
+
   $sql .= " ORDER BY RAND() LIMIT 8;";
-  echo $sql;
   $query = $pdo->prepare($sql);
   $query->execute();
   $movies = $query->fetchAll();
@@ -121,7 +122,6 @@ foreach ($movies as $movie) { ?>
 
 <div class="clear"></div>
 
-<a class="myButton" href="index.php">Plus de film</a>
 <br/>
 
 </div>
