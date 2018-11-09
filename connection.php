@@ -38,8 +38,8 @@ else{
       'status' => $user['status'],
       'ip' => $_SERVER['REMOTE_ADDR']
     );
-    // header('Location:index.php');
-    echo $user['pseudo'];
+     header('Location:index.php');
+
   }
 }
 

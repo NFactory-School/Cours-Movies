@@ -1,7 +1,7 @@
 <nav>
   <?php
 
-        if (islogged()==false) {
+        if (!islogged()) {
           echo '<p> <a href="incription.php"> Inscription </a> </li>
           <p> <a href="connection.php"> Connexion </a> </p>';
         }else{
