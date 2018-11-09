@@ -1,7 +1,8 @@
 <?php
-include ('inc/pdo.php');
+include ('inc/pdo.php'); 
 include ('inc/fonction.php');
 include ('inc/header.php');
+
 
   $sql = "SELECT genres FROM movies_full";
   $query = $pdo->prepare($sql);
@@ -27,7 +28,7 @@ include ('inc/header.php');
         else {
           echo '<input class="'.$ex.'" type="checkbox" name="'.$ex.'" value="'.$ex.'">'.$ex.'<br/>';
         }
-        
+
       }
     }
   }
