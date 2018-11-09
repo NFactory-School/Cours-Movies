@@ -11,27 +11,20 @@ include ('inc/header.php');
   $tableau = array();
 
   echo '<form class="categorie-genre" action="index.php" method="post">';
-  foreach ($genres as $genre) {
 
+  foreach ($genres as $genre) {
   $g = $genre['genres'];
   $explodes = explode(',',$g);
 
   foreach ($explodes as $explode) {
-
     $ex = trim($explode);
-
     if(!in_array($ex,$tableau)) {
-
       if(!empty($ex)) {
-
         $tableau[] = $ex;
-
         if (!empty($_POST[$ex])){
-
           echo '<input checked class="'.$ex.'" type="checkbox" name="'.$ex.'" value="'.$ex.'">'.$ex.'<br/>';
         }
         else {
-
           echo '<input class="'.$ex.'" type="checkbox" name="'.$ex.'" value="'.$ex.'">'.$ex.'<br/>';
         }
         
@@ -49,7 +42,7 @@ include ('inc/header.php');
   <option <?php if (!empty($_POST['date']) && $_POST['date'] == "moderne"){echo "selected";} ?> value="moderne">Après 1990</option>
 </select>
 
-<input type="submit" name="tri" value="">
+<input type="submit" name="tri" value="FILTRER">
 </form>
 <br/>
 
@@ -65,7 +58,7 @@ $sql="SELECT * FROM movies_full WHERE 1=1";
 
       if (!empty($_POST[$tab])){
 
-      $sql .= " AND genres LIKE '%$tab%'";
+      $sql .= " OR genres LIKE '%$tab%'";
 
       }
     }
