@@ -1,8 +1,7 @@
 <?php include('../inc/fonction.php');
 include('../inc/pdo.php');
 //verif admin
-//isAdmin($_SESSION['user']['status']);
-
+isAdmin();
 
 //compte les films
 $sql = "SELECT COUNT(title) FROM movies_full";
@@ -31,4 +30,4 @@ include('inc/header.php'); ?>
 <p><a href="inc/add_film.php">Ajout d'un film</a></p>
 <p><a href="inc/aff_user.php">Consultation d'utilisateurs'</a></p>
 
-<?php include('../inc/footer.php'); ?>
+<?php include('../inc/footer.php');

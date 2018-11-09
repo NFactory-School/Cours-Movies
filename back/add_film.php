@@ -1,5 +1,7 @@
 <?php include('../inc/fonction.php');
 
+isAdmin();
+
 //compte les films
 $sql = "SELECT COUNT(films) FROM movies_full";
 $query = $pdo->prepare($sql);

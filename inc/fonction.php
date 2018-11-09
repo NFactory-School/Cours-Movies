@@ -84,15 +84,10 @@ function isLogged(){
 return false;
 }
 
-function isAdmin($type) {
-  if(!empty($type)){
-    if ($type=='user') {
-      header('Location: 403.php');
-    }
-    else{
-    }
-  }else{header('Location: 403.php');}
-  return $type;
+function isAdmin() {
+  if (!isLogged() && $_SESSION['user']['status']!='admin'){
+    header('Location:../403.php');
+  }
 }
 
 ?>

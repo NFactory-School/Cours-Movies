@@ -1,7 +1,7 @@
 <?php include('../inc/fonction.php');
 include('../inc/pdo.php');
 //verif admin
-//isAdmin($_SESSION['user']['role']);
+isAdmin();
 
 //film existe?
 if(!empty($_GET['id']) && is_numeric($_GET['id'])) {
