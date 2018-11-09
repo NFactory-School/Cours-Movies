@@ -1,4 +1,4 @@
-<?php 
+<?php
 include ('inc/header.php');
 include ('inc/fonction.php');
 
@@ -9,7 +9,7 @@ include ('inc/fonction.php');
 
   $tableau = array();
 
-  echo '<form class="categorie" action="index.php">';
+  echo '<form class="categorie" action="index.php" method="post">';
   foreach ($genres as $genre) {
 
   $g = $genre['genres'];
@@ -29,11 +29,27 @@ include ('inc/fonction.php');
     }
   }
 }?>
+<input type="submit" name="tri" value="">
+<?php
+  ?>
 <div class="clear"></div>
 <?php
 echo '</form>';
 
-  $sql = "SELECT * FROM movies_full ORDER BY RAND() LIMIT 8";
+$sql="SELECT * FROM movies_full WHERE 1=1";
+  if(!empty('tri')){
+    foreach ($tableau as $tab) {
+
+      if (!empty($_POST[$tab])){
+
+      $sql .= " OR genres LIKE '%$tab%'";
+
+      }
+    }
+    $sql .= " ORDER BY RAND() LIMIT 8";
+    echo $sql;
+}
+
   $query = $pdo->prepare($sql);
   $query->execute();
   $movies = $query->fetchAll();
@@ -45,7 +61,20 @@ foreach ($movies as $movie) { ?>
       <br/>
     <div class="poster">
       <a href="detail.php?slug=<?php echo $movie['slug']; ?>">
-        <img src="posters/<?php echo $movie['id'].".jpg" ?>" alt="<?php echo $movie['title'] ?> ">
+        <?php
+        $poster = $movie['id'].".jpg";
+          $chemin = "posters/".$poster;
+          if (file_exists($chemin)){
+            ?>
+            <img src="posters/<?php echo $poster ?>" alt="<?php echo $movie['title'] ?> ">
+            <?php
+          }
+          else {
+            ?>
+            <img src="img/notfound.jpg" alt="picture not found">
+            <?php
+          }
+        ?>
       </a>
     </div>
     <div class="titre">
