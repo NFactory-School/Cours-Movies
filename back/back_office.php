@@ -1,4 +1,8 @@
 <?php include('../inc/fonction.php');
+include('../inc/pdo.php');
+//verif admin
+//isAdmin($_SESSION['user']['role']);
+
 
 //compte les films
 $sql = "SELECT COUNT(films) FROM movies_full";

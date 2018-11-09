@@ -55,7 +55,7 @@ $sql="SELECT * FROM movies_full WHERE 1=1";
 
       if (!empty($_POST[$tab])){
 
-      $sql .= " OR genres LIKE '%$tab%'";
+      $sql .= " AND genres LIKE '%$tab%'";
 
       }
     }
@@ -67,15 +67,15 @@ if (!empty($_POST['date'])){
       case "antique":
         $sql .= " AND year < 1920";
       break;
-  
+
       case "vieux":
         $sql .= " AND year < 1920";
       break;
-  
+
       case "ancien":
         $sql .= " AND year BETWEEN 1950 AND 1990";
       break;
-          
+
       case "moderne":
         $sql .= " AND year > 1990";
       break;
