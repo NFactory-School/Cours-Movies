@@ -28,7 +28,7 @@ include ('inc/header.php');
 
         if (!empty($_POST[$ex])){
 
-          echo '<input selected class="'.$ex.'" type="checkbox" name="'.$ex.'" value="'.$ex.'">'.$ex.'<br/>';
+          echo '<input checked class="'.$ex.'" type="checkbox" name="'.$ex.'" value="'.$ex.'">'.$ex.'<br/>';
         }
         else {
 
