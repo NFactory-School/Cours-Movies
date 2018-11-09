@@ -5,7 +5,7 @@ include('../inc/pdo.php');
 
 
 //selectionne tous les films
-    $id = $_POST['slug'];
+    $id = $_GET['slug'];
     $sql = "SELECT * FROM movies_full WHERE slug = :id ORDER BY title ASC LIMIT 100";
     $query = $pdo->prepare($sql);
     $query -> bindValue(':id', $id, PDO::PARAM_STR);

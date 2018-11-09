@@ -42,7 +42,12 @@ if(islogged()){
         'status' => $user['status'],
         'ip' => $_SERVER['REMOTE_ADDR']
       );
+      if($user['status'] == 'admin'){
+        header('Location:back/back_office.php');
+      }else{
        header('Location:index.php');
+     }
+
 
     }
   }
@@ -63,7 +68,5 @@ if(islogged()){
     </fieldset>
   </form>
 </div>
-
-<?php if(isAdmin($_SESSION['user']['status'])){ header('Location: /back/back_office.php'); } ?>
 
 <?php include ('inc/footer.php');

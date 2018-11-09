@@ -3,6 +3,7 @@ include ('inc/pdo.php');
 include ('inc/fonction.php');
 include ('inc/header.php');
 
+  
 
   $sql = "SELECT genres FROM movies_full";
   $query = $pdo->prepare($sql);
@@ -16,14 +17,14 @@ include ('inc/header.php');
 
   $g = $genre['genres'];
   $explodes = explode(',',$g);
-  
+
 
   foreach ($explodes as $explode) {
-    
+
     $ex = trim($explode);
 
     if(!in_array($ex,$tableau)) {
-      
+
       if(!empty($ex)) {
 
         $tableau[] = $ex;
@@ -37,7 +38,7 @@ include ('inc/header.php');
           echo '<div class="caseetgenre">';
           echo '<span>'.$ex.'</span><input class="checkbox-genres" type="checkbox" name="'.$ex.'" value="'.$ex.'">';
           echo '</div>';
-          
+
         }
 
       }
