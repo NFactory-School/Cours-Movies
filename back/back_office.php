@@ -23,8 +23,8 @@ include('inc/header.php'); ?>
 <h2>Le nombre d'utilisateurs dans votre site est de :<?php echo $count_users ?></h2><br/>
 <h2>Les 30 meilleurs films sont :<?php echo $best_films ?></h2></p>
 
-<p><a href="">Consultation de films</a></p>
-<p><a href="#">Ajout d'un film</a></p>
-<p><a href="#">Consultation d'utilisateurs'</a></p>
+<p><a href="inc/aff_film.php">Consultation de films</a></p>
+<p><a href="inc/add_film.php">Ajout d'un film</a></p>
+<p><a href="inc/aff_user.php">Consultation d'utilisateurs'</a></p>
 
 <?php include('../inc/footer.php'); ?>
