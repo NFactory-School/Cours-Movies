@@ -4,9 +4,7 @@ include ('inc/fonction.php');
 include ('inc/header.php');
 
 
-?>
-
-<?php if(!empty($_POST['submit'])){
+if(!empty($_POST['submit'])){
   $mail = trim(strip_tags($_POST['mail']));
   $mdp = trim(strip_tags($_POST['mdp']));
 
