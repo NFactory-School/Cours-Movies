@@ -59,7 +59,8 @@ if(islogged()){
         <label for="mdp">Mot de passe</label>
       <input type="password" name="mdp" value="">
       <span class="error"><?php if(!empty($errors['mdp'])){echo $errors['mdp'];};?></span><br>
-      <input class="myButton" type="submit" name="submit" value="Connection">
+      <input class="myButton" type="submit" name="submit" value="Connexion">
+      <p><a class="myButton" href="oublimail.php">mot de passe oublié ?</a></p>
     </fieldset>
   </form>
 </div>

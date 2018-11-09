@@ -32,7 +32,7 @@ if (!empty($_GET['mail']) && !empty($_GET['token'])) {
         $hash = password_hash($mdp, PASSWORD_DEFAULT);
         $token = generateRandomString(120);
         $sql = "UPDATE nf_user
-                SET mdp = :hash, token = :token, updated_at = NOW()
+                SET mdp = :hash, token = :token
                 WHERE id = :id";
         $query = $pdo -> prepare($sql);
         $query -> bindValue(':hash', $hash);
@@ -43,9 +43,10 @@ if (!empty($_GET['mail']) && !empty($_GET['token'])) {
       }
     }
   }else {
-    die('404');}
-}else{
-  die('404');}
+    header('Location:404.php');}
+}
+// else{
+  // header('Location:404.php');}
 ?>
 
 
